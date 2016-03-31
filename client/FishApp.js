@@ -24,28 +24,11 @@ var Jumbotron = React.createClass({
   }
 });
 
-var Toggler = React.createClass({
-  render: function() {
-    return (
-        <div className="btn-group" data-toggle="buttons">
-          <label className="btn btn-primary active">
-            <input type="radio"/> 
-            Fish Display
-          </label>
-          <label className="btn btn-primary">
-            <input type="radio"/> 
-            Modify Fish
-          </label>
-        </div>
-      )
-  }
-});
-
 var Loader = React.createClass({
   render: function() {
     return (
       <div>
-       <i className="fa-spin fa fa-spinner fa-6 mySpinner"></i>
+       <i className="fa fa-modx fa-spin myFont center-block"></i>
      </div>
     )
   }
@@ -83,7 +66,6 @@ var FishApp = React.createClass({
     return (
       <div>
           <Jumbotron />
-          <Toggler />
           <FishBox fishArray={ this.state.fishArray }/>
       </div> 
       )

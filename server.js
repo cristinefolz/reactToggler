@@ -2,8 +2,11 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fish')
+
 
 var fishRoutes = require('./routes/fish');
 
