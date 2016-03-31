@@ -1,7 +1,3 @@
-// FishBox
-  // FishList
-    // FishCard
-
 var React = require('react');
 var FishList = require('./FishList');
 var FishForm = require('./FishForm');
@@ -16,8 +12,11 @@ var Toggler = React.createClass({
     return (
       <div className="container">
         <div data-toggle="buttons">
-            <button className="btn btn-primary-outline my-btn" onClick={ this.props.toggleActiveComp.bind(null, 'fish') }> Fish Display </button>
-            <button className="btn btn-primary-outline my-btn" onClick={ this.props.toggleActiveComp.bind(null, 'form') }> Modify Fish </button>
+            <button className="btn btn-primary-outline my-btn" 
+              onClick={() => this.props.toggleActiveComp('fish')}> Fish Display </button>
+
+            <button className="btn btn-primary-outline my-btn" 
+              onClick={() => this.props.toggleActiveComp('form')}> Add Fish to Display </button>
         </div>
       </div>
       )
@@ -36,7 +35,7 @@ var FishBox = React.createClass({
     if(this.state.activeComponent === 'fish'){
       return <FishList fishArray={ this.props.fishArray }/>
     } else if (this.state.activeComponent === 'form') {
-      return <FishForm />
+      return <FishForm submitFishToServer={ this.props.submitFishToServer }/>
     } else {
       return <FishList fishArray={ this.props.fishArray }/>
     }

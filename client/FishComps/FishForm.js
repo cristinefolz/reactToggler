@@ -3,7 +3,7 @@ var React = require('react');
 var FishForm = React.createClass({
   getInitialState: function() {
     return {
-      fishName: null,
+      name: null,
       peopleEater: null,
       color: null,
       img: null,
@@ -11,7 +11,7 @@ var FishForm = React.createClass({
     }
   },
   onNameChange: function(event){
-    this.setState({ fishName: event.target.value })
+    this.setState({ name: event.target.value })
   },
   onColorChange: function(event){
     this.setState({ color: event.target.value })
@@ -28,8 +28,18 @@ var FishForm = React.createClass({
   },
   handleFormSubmit: function(e) {
     e.preventDefault();
-    var data = {};
-    console.log("the name of the fish is: ", this.state.fishName);
+
+    var fishData = {
+      name: this.state.name.trim(),
+      color: this.state.color.trim(),
+      length: this.state.length.trim(),
+      img: this.state.img.trim(),
+      people_eater: this.state.peopleEater
+    };
+
+    this.props.submitFishToServer(fishData);
+
+    this.setState({ name: '', color: '', length: '', img: '' });
   },
   render: function() {
     return (
@@ -38,7 +48,7 @@ var FishForm = React.createClass({
         <h3> Enter New Fish </h3>
         <fieldset className="form-group">
           <label>name</label>
-          <input onChange={this.onNameChange} value={ this.state.fishName } type="text" className="form-control"/>
+          <input onChange={this.onNameChange} value={ this.state.name } type="text" className="form-control"/>
         </fieldset>
         <fieldset className="form-group">
           <label>color</label>
@@ -61,6 +71,7 @@ var FishForm = React.createClass({
             <option value={ false }>no</option>
           </select>
         </fieldset>
+
         <button className="btn btn-success-outline" type="submit"> Submit </button>
       </form>
       </div>
