@@ -1,48 +1,55 @@
+/* Fish App
+      FishBox
+          FishListData
+              FishList
+                  FishCard
+          FishFormData
+              FishForm
+          FishDetailsData
+              FishDetails
+*/
+
 var React = require('react');
 
 var FishFormData = require('./FishFormData');
 var FishListData = require('./FishListData');
-
-var Toggler = React.createClass({
-  render: function() {
-    return (
-      <div className="container">
-        <div data-toggle="buttons">
-            <button className="btn btn-primary-outline my-btn" 
-              onClick={() => this.props.toggleActiveComp('fish')}> Fish Display </button>
-
-            <button className="btn btn-primary-outline my-btn" 
-              onClick={() => this.props.toggleActiveComp('form')}> Add Fish to Display </button>
-        </div>
-      </div>
-      )
-  }
-});
+var FishToggler = require('./FishToggler');
+var FishDetailsData = require('./FishDetailsData');
 
 var FishBox = React.createClass({
   getInitialState: function() {
     return {
-      activeComponent: 'fish'
+      activeComponent: 'fish',
+      activeFishId: null,
       }
   },
+  getId: function(id){
+    return this.setState({ activeFishId: id, activeComponent: 'oneFish' })
+  },
+
   showComp: function() {
     /* THIS FUNCTION RENDERS ONE COMPONENT 
     BASED ON activeComp State*/
     if(this.state.activeComponent === 'fish'){
-      return <FishListData/>
+      return <FishListData getId={ this.getId }/>
+
     } else if (this.state.activeComponent === 'form') {
       return <FishFormData toggleActiveComp={ this.toggleActiveComp }/>
+
+    } else if (this.state.activeComponent === 'oneFish') {
+      return <FishDetailsData id={ this.state.activeFishId }/>
+      
     } else {
       throw new Error("Invalid activeComponent ", this.state.activeComponent)
     }
   },
   toggleActiveComp: function(name) {
-    this.setState({activeComponent: name})
+    this.setState({ activeComponent: name })
   },
   render: function() {
     return (
       <div className="container fbContainer">
-      <Toggler toggleActiveComp={this.toggleActiveComp}/>
+      <FishToggler toggleActiveComp={ this.toggleActiveComp }/>
       { this.showComp() }
       </div>    
     )

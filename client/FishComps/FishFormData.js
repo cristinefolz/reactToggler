@@ -1,10 +1,12 @@
 /* Fish App
       FishBox
-          FishData
+          FishListData
               FishList
                   FishCard
           FishFormData
               FishForm
+          FishDetailsData
+              FishDetails
 */
 
 var React = require('react');
@@ -89,9 +91,14 @@ var FishFormData = React.createClass({
       return (
 
         <div>
-          <FishForm handleFormSubmit={ this.handleFormSubmit } handleNameChange={ this.handleNameChange }
-           handleColorChange={ this.handleColorChange } handleImgChange={ this.handleImgChange }
-           handleLengthChange={ this.handleLengthChange } handlePeopleEaterChange={ this.handlePeopleEaterChange }
+          <FishForm 
+            name={ this.state.name }
+            handleFormSubmit={ this.handleFormSubmit } 
+            handleNameChange={ this.handleNameChange }
+            handleColorChange={ this.handleColorChange } 
+            handleImgChange={ this.handleImgChange }
+            handleLengthChange={ this.handleLengthChange } 
+            handlePeopleEaterChange={ this.handlePeopleEaterChange }
            />
         </div>
 

@@ -1,10 +1,12 @@
 /* Fish App
       FishBox
-          FishData
+          FishListData
               FishList
                   FishCard
           FishFormData
               FishForm
+          FishDetailsData
+              FishDetails
 */
 
 var React = require('react');

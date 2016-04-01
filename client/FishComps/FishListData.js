@@ -1,3 +1,14 @@
+/* Fish App
+      FishBox
+          FishListData
+              FishList
+                  FishCard
+          FishFormData
+              FishForm
+          FishDetailsData
+              FishDetails
+*/
+
 var React = require('react');
 var Loader = require('./FishLoader');
 var FishList = require('./FishList');
@@ -15,7 +26,7 @@ var FishListData = React.createClass ({
     $.ajax({
       url: '/api/fish',
       method: 'GET'
-    }).done((data) => this.setState({allFish: data}));
+    }).done((data) => this.setState({ allFish: data }));
   },
 
   componentDidMount() {
@@ -23,7 +34,7 @@ var FishListData = React.createClass ({
   },
 
   render() {
-    return this.state.allFish ? <FishList fishArray={ this.state.allFish }/> : <Loader/>
+    return this.state.allFish ? <FishList fishArray={ this.state.allFish } getId={ this.props.getId }/> : <Loader/>
   },
 });
 

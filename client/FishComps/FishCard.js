@@ -1,10 +1,12 @@
 /* Fish App
       FishBox
-          FishData
+          FishListData
               FishList
                   FishCard
           FishFormData
               FishForm
+          FishDetailsData
+              FishDetails
 */
 
 
@@ -19,9 +21,7 @@ function FishCard(props){
             <img className="card-img-top fish-img" src={ props.img } alt="some fish"/>
               <div className="card-block">
               <h4 className="card-title">{ props.name }</h4>
-              <p className="card-text">{ props.color }</p>
-              <p className="card-text">{ props.length }</p>
-              <a href="#" className="btn btn-primary"> More Info...</a>
+              <button onClick={ props.getId.bind(null, props.id) } className="btn btn-primary"> More Info...</button>
               </div>
           </div>
 

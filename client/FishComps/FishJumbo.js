@@ -1,3 +1,14 @@
+/* Fish App
+      FishBox
+          FishListData
+              FishList
+                  FishCard
+          FishFormData
+              FishForm
+          FishDetailsData
+              FishDetails
+*/
+
 var React = require('react');
 
 var FishJumbotron = React.createClass({
