@@ -1,23 +1,32 @@
-// FishBox
-  // FishList
-    // FishCard
+/* Fish App
+      FishBox
+          FishData
+              FishList
+                  FishCard
+          FishFormData
+              FishForm
+*/
 
 
 var React = require('react');
 
-var FishCard = React.createClass({
-  render: function() {
+function FishCard(props){
     return (
-      <div className="card card-size">
-        <img className="card-img-top fish-img" 
-        src={ this.props.img } alt="some fish"/>
-        <div className="card-block card-flex">
-          <h4 className="card-title">{ this.props.name }</h4>
-          <a href="#" className="btn btn-primary">GO</a>
-        </div>
+      <div className="col-sm-4">
+      <br/>
+
+          <div className="card">
+            <img className="card-img-top fish-img" src={ props.img } alt="some fish"/>
+              <div className="card-block">
+              <h4 className="card-title">{ props.name }</h4>
+              <p className="card-text">{ props.color }</p>
+              <p className="card-text">{ props.length }</p>
+              <a href="#" className="btn btn-primary"> More Info...</a>
+              </div>
+          </div>
+
       </div>
       )
-  }
-});
+};
 
 module.exports = FishCard;

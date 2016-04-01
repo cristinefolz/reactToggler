@@ -24,19 +24,19 @@ var App = React.createClass({
   },
   showWhichComponent: function() {
     switch(this.state.activeComponent) {
-        case 'welcome':
+        case 'Welcome':
             return <Welcome/>
             break;
-        case 'bears':
+        case 'Bears':
             return <Bears/>
             break;
-        case 'fish':
+        case 'Fish':
             return <FishApp/>
             break;
-        case 'beer':
+        case 'Beer':
             return <Beers/>
             break;
-        case 'cookies':
+        case 'Cookies':
             return <Cookies/>
             break;
         default:
