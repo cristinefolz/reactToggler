@@ -41,7 +41,7 @@ var FishBox = React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <div className="container fbContainer">
       <Toggler toggleActiveComp={this.toggleActiveComp}/>
       { this.showComp() }
       </div>    

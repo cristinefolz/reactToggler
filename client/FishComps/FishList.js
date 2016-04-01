@@ -6,11 +6,11 @@ var React = require('react');
 var FishCard = require('./FishCard');
 
 function FishList(props){
-  render: function() {
     //MAP THROUGH OUR DATA AND PASS IT TO FISH CARD;
     var allFish = props.fishArray.map(item => {
       return (
         <FishCard 
+          key={ item._id }
           name={ item.name } 
           color={ item.color }
           people_eater={ item.people_eater }
@@ -20,11 +20,10 @@ function FishList(props){
     })
     
     return (
-      <div className="fish-flex">
+      <div className="container myContainer fish-flex">
         { allFish }
       </div>
       )
-  }
 };
 
 FishList.propTypes = {
