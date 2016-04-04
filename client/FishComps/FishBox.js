@@ -27,6 +27,7 @@ var FishBox = React.createClass({
     return this.setState({ activeFishId: id, activeComponent: 'oneFish' })
   },
 
+
   showComp: function() {
     /* THIS FUNCTION RENDERS ONE COMPONENT 
     BASED ON activeComp State*/
@@ -43,9 +44,11 @@ var FishBox = React.createClass({
       throw new Error("Invalid activeComponent ", this.state.activeComponent)
     }
   },
+
   toggleActiveComp: function(name) {
     this.setState({ activeComponent: name })
   },
+
   render: function() {
     return (
       <div className="container fbContainer">

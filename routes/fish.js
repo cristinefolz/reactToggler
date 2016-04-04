@@ -6,13 +6,13 @@ var Fish = require('../models/fish');
 //get fish from /api/fish
 router.route('/')
   .get(function(req, res){
-    Fish.find(function(err, fishes){
-      if(err){
-        res.status(500).send(err, 'Something broke!');
-      } else {
-        res.json(fishes)
-      }
-    });
+      Fish.find(function(err, fishes){
+        if(err){
+          res.status(500).send(err, 'Something broke!');
+        } else {
+          res.json(fishes)
+        }
+      });
   })
 // post fish to /api/fish
   .post(function(req, res){
@@ -24,11 +24,7 @@ router.route('/')
       length: req.body.length || 'none',
       img: req.body.img || 'none',
     });
-    // fish.name = req.body.name || 'none';
-    // fish.color = req.body.color || 'none';
-    // fish.people_eater = req.body.people_eater || 'none';
-    // fish.length = req.body.length || 'none';
-    // fish.img = req.body.img || 'none';
+  
     console.log(fish);
 
     fish.save(function(err, fish){
@@ -41,7 +37,7 @@ router.route('/')
   })
 
 router.route('/one_fish/:fish_id')
-// get a fish from /api/fish/oneFish/ID_Number
+// get a fish from /api/fish/one_fish/ID_Number
   .get(function(req, res){
       Fish.findById(req.params.fish_id, function(err, fish){
         if (err){
@@ -75,18 +71,26 @@ router.route('/one_fish/:fish_id')
   })
 
   .delete(function(req, res){
-    
+      Fish.remove({_id: req.params.fish_id}, function(err, fish){
+        if(err){
+          res.status(500).send(err, 'Something broke!');
+        } else {
+          console.log(fish);
+          res.json({ message: "fish has been deleted!"})
+        }
+      });  
   })
+
 
 router.route('/man_eater')
   .get(function(req, res) {
-    Fish.find({people_eater: true}, function(err, fish){
-      if(err){
-        res.status(500).send(err, 'Something broke!');
-      } else {
-        res.json(fish)
-      }
-    });
+      Fish.find({people_eater: true}, function(err, fish){
+        if(err){
+          res.status(500).send(err, 'Something broke!');
+        } else {
+          res.json(fish)
+        }
+      });
   })
 
 

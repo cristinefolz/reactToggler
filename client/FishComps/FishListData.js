@@ -21,6 +21,19 @@ var FishListData = React.createClass ({
     }
   },
 
+  deleteId: function(id){
+
+    $.ajax({
+      url: '/api/fish/one_fish/' + id,
+      method: 'DELETE',
+      success: function(fish){
+        if(confirm('Are you sure you want to delete this fish?')){
+          this.loadAllFishFromServer();
+        }
+      }.bind(this),
+    });
+  },
+
   loadAllFishFromServer() {
     //GO GET ALL FISH FROM SERVER
     $.ajax({
@@ -29,12 +42,13 @@ var FishListData = React.createClass ({
     }).done((data) => this.setState({ allFish: data }));
   },
 
+
   componentDidMount() {
     this.loadAllFishFromServer();
   },
 
   render() {
-    return this.state.allFish ? <FishList fishArray={ this.state.allFish } getId={ this.props.getId }/> : <Loader/>
+    return this.state.allFish ? <FishList fishArray={ this.state.allFish } getId={ this.props.getId } deleteId={ this.deleteId }/> : <Loader/>
   },
 });
 

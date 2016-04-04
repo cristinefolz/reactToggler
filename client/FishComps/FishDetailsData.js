@@ -37,7 +37,7 @@ var FishDetailsData = React.createClass ({
   },
 
   render: function() {
-    return this.state.oneFish ? <FishDetails oneFish={ this.state.oneFish }/> : <FishLoader />
+    return this.state.oneFish ? <FishDetails oneFish={ this.state.oneFish } /> : <FishLoader />
   },
 
 });

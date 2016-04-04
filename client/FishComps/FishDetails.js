@@ -24,6 +24,7 @@ function FishDetails(props) {
               <p className="card-text">{ props.oneFish.color }</p>
               <p className="card-text">{ props.oneFish.length }</p>
               <p className="card-text">Will I eat people? { (props.oneFish.people_eater).toString() }</p>
+              <button onClick={ props.updateFishOnServer } className="btn btn-warning"> Update </button>
               </div>
           </div>
 
