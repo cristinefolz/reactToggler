@@ -103,7 +103,7 @@ var EditFishData = React.createClass({
       data: fishData,
       success: function(data){
         this.props.toggleActiveComp('fish');
-        this.context.sendNotification('Updated Fish!!!!');
+        this.context.sendNotification('Updated the ' + data.name + '!');
         console.log(data);
       }.bind(this),
       error: function(xhr, status, err){
