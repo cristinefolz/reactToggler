@@ -7,6 +7,8 @@
               FishForm
           FishDetailsData
               FishDetails
+          EditFishData
+              EditFishForm
 */
 
 var React = require('react');

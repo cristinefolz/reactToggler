@@ -7,6 +7,8 @@
               FishForm
           FishDetailsData
               FishDetails
+          EditFishData
+              EditFishForm
 */
 
 var React = require('react');
@@ -48,7 +50,7 @@ var FishFormData = React.createClass({
 
     handlePeopleEaterChange: function(event){
       console.log(event.target.value);
-      this.setState({ peopleEater: event.target.value })
+      this.setState({ people_eater: event.target.value })
     },
 
     handleFormSubmit: function(e) {
@@ -59,7 +61,7 @@ var FishFormData = React.createClass({
         color: this.state.color.trim(),
         length: this.state.length.trim(),
         img: this.state.img.trim(),
-        people_eater: this.state.peopleEater
+        people_eater: this.state.people_eater
       };
 
       console.log(fishData);
