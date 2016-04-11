@@ -10,7 +10,8 @@ var Beers = React.createClass ({
             <hr className="m-y-2"></hr>
             <p>We will use parts of this in our next project.</p>
             <p className="lead">
-              <a className="btn btn-primary btn-lg" href="#" role="button">Drink to Click...</a>
+              <a className="btn btn-lg beer-button" href="#" role="button">Drink to Click...</a>
+              <a className="btn btn-sm secondary-beer-button" href="#" role="button">Secondary-beer</a>
           </p>
         </div>
 

@@ -1,0 +1,43 @@
+@import '_colors';
+
+$button-padding: .5em 1em;
+
+@mixin standard-button {
+   display: inline-block;
+   padding: $button-padding;
+   font-size: 12px;
+   font-weight: bold;
+   color: $primary-lighten;
+   text-transform: uppercase;
+   background-color: $primary-darken;
+   border: 1px solid $secondary;
+   transition: all 0.3s ease-in-out;
+   
+   &:hover {
+       background-color: $primary-darken;
+       color: $primary-lighten;
+   }
+
+   // .beer-button:hover {
+
+    //},
+}
+
+@mixin custom-button-theme($color){
+  @include standard-button;
+  font-size: 1em;
+  background-color: $color;
+}
+
+.secondary-beer-button {
+  @include custom-button-theme(orange)
+}
+// calling the custom-beer-button function, passing in a parameter to assign to $color
+
+.beer-button {
+  @include standard-button;
+  font-size: 1em;
+  color: $accent;
+}
+
+// em = relative to the screen size.  1 em = 16px
